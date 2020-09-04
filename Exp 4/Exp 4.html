@@ -1,0 +1,70 @@
+<html> <head>
+<title>Form Validation Using Java Script</title>
+<script type="text/javascript">
+32
+function hello()
+{
+if(document.forms["f1"]["name"].value)
+{
+	alert("Plz Enter Your Name");
+return false;
+}
+else if(document.f1.email.value=="")
+{
+window.alert("Plz Enter Your E-mail:");
+return false;
+}
+else if(document.f1.email.value.indexOf('@gmail.com')==-1)
+{
+window.alert("Plz Enter Your Valid E-mail");
+return false;
+}
+else if(document.f1.addr.value=="")
+{
+window.alert("Plz Enter Your Address");
+return false;
+}
+else if(document.f1.country.selectedIndex==0)
+{
+window.alert("Plz Select Your Country");
+return false;
+}
+else if((document.f1.rdo[0].checked==false)&&(document.f1.rdo[1].checked==false))
+32
+{
+window.alert("Plz Choose Your Gender");
+return false;
+}
+else if((document.f1.chk[0].checked==false)&&(document.f1.chk[1].checked==false))
+{
+window.alert("Plz Select Your Qualification");
+return false;
+}
+else
+return true;
+}
+</script> </head>
+<body bgcolor="lightgreen">
+<h3 style="text-align:center">Web Form Validation Using Java Script</h3>
+<form style="font-family: serif;" name="f1" action="Register.html" method="post" onsubmit="return hello() ">
+<fieldset>
+<legend>Registration Form</legend> <br/>
+<table border="1">
+<tr> <td>Name:</td> <td><input type="text" name="name"></td> </tr>
+<tr> <td>E-mail:</td> <td><input type="text" name="email"></td> </tr>
+<tr> <td>Address:</td> <td><Textarea name="addr" rows="5" cols="20"></Textarea></td> </tr>
+<tr> <td>Country:</td> <td> <select name="country">
+<option>---Select Your Country---</option>
+<option>India</option>
+<option>USA</option>
+<option>AUS</option>
+<option>UK</option>
+</select> </td> </tr>
+<tr> <td>Gender:</td>
+<td> <input type="radio" name="rdo">Male <input type="radio" name="rdo">Female </td> </tr>
+32
+<tr> <td>Qualification:</td> <td>
+<input type="checkbox" name="chk">B.E
+<input type="checkbox" name="chk">M.E
+</td> </tr> </table> <br/>
+<input type="submit" value="Register"> </fieldset> </form> </body> </html>
