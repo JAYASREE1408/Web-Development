@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<web-app>
+    <servlet>
+        <servlet-name>DOM</servlet-name>
+        <servlet-class>Parser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DOM</servlet-name>
+        <url-pattern>/fetchdata</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
+    <title>1818128_DOM</title>
+    <style>
+        body{
+            font-family:"Courgette";
+            font-size: 30px;
+            background:white; 
+            padding: 30px;
+            color: black;
+            
+        }
+       input{
+             font-size: 30px;
+             border: 2px solid transparent;
+             border-bottom: 5px solid #f21852;
+       }
+       form{
+            color: white;
+            border: 6px solid white;
+            padding: 100px 1px 100px 1px ;
+            background: black;
+            border-style: groove;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 3px 3px 3px 3px solid white;
+
+       }
+       
+    </style>
+</head>
+<body>
+  <h1 align="center">STUDENT DETAILS: </h1>
+    <form action="fetchdata" align="center" method="get">
+      <label for="rno"><i class="fa fa-user"></i>  Roll Number :</label>
+        <input type="text"  placeholder="Enter the Roll No:" name="data" id="rno"><br><br>
+          <div class="col-12 col-sm-11 offset-sm-1">
+            <div class="btn-group" role="group">
+             <input type="submit" name="button1" role="button" class="btn btn-info" ></input>
+              <input type="reset" name="button2" role="button" class="btn btn-success" ></input>
+            </div>
+          </div>
+    </form>
+</body>
+</html>
