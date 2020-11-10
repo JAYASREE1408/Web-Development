@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>1818128_EXP NO:9</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
+  <style type="text/css">
+        body{
+            font-family:"Courgette";
+            font-size: 30px;
+            background-image: url("https://images.hdqwalls.com/download/winter-roads-of-japan-4k-gk-1920x1080.jpg"); 
+            background-size: cover;
+            padding:50px 200px 30px 200px;
+            
+        }
+        h1{
+          color: blue;
+          text-shadow: 4px 4px 4px white;
+        }
+       input{
+             font-size: 30px;
+             border: 2px solid transparent;
+             border-bottom: 5px solid blue;
+       }
+       input:hover{
+        background-color: blue;
+        border: 5px 5px 5px 5px solid white;
+        color: white;
+       }
+
+       form{
+            color: white;
+            border: 6px solid white;
+            padding: 20px 20px 20px 20px ;
+            background: black;
+            opacity: 0.8;
+            border-style: groove;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 3px 3px 3px 3px blue;
+
+       }
+       td{
+        padding:20px 20px 20px 20px ; 
+       }
+       
+    </style>
+  </style>
+</head>
+<body align="center">
+   <div>
+      
+   		<form align="center" action="ajax" method="POST" onsubmit="return validator(this);">
+   			
+   			<b><h1>FORM VALIDATION USING AJAX :</h1></b>
+          
+        <table align="center">
+   			<div>
+          <tr>
+            <td>
+              <label for="name">Name : </label>
+            </td>
+            <td>
+              <input type="text" placeholder="Enter Your Name" name="username" id="name" onchange="check(this.name,this.value);">
+          <p style="color: red" id="usernamemsg"></p>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="mail">Email : </label>
+            </td>
+            <td>
+              <input type="text" placeholder="Enter Your Mailid" name="emailId" id="mail" onchange="check(this.name,this.value);">
+          <p style="color: red" id="emailIdmsg"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password1">Password :</label>
+            </td>
+            <td>
+              <input type="password" placeholder="Enter Your Password" name="password1" id="password1" onchange="check(this.name,this.value);">
+          <p style="color: red" id="password1msg"></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="password2">Confirm Password : </label>
+            </td>
+            <td>
+              <input type="password" placeholder="Retype Your Password" name="password2" id="password2" onchange="passwordcheck(this.value);">
+              <p style="color: red" id="password2msg"></p>
+            </td>
+          </tr>
+        <div class="col-12 col-sm-11 offset-sm-1">
+          <div class="btn-group" role="group">
+          <tr>
+            <td>
+              
+            </td>
+            <td>
+              
+              <button id="btn1" type="submit" name="button1" role="button" class="btn btn-info" >SUBMIT</button>      
+              <button id="btn2" type="reset" name="button2" role="button" class="btn btn-success" >RESET</button>
+
+            </td>
+          </tr>
+        </div>
+      </div>
+        <br>
+        </table>
+   		</form>
+      
+   </div>
+  <script type="text/javascript">
+
+  function check(field,data){
+      if(data!=null&&data!=""){
+       
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function(){
+      if(this.readyState ==4  && this.status == 200){
+            if(this.responseText!=null && this.responseText!="")
+            {
+              document.getElementById(field+"msg").style.display = "block";
+              document.getElementById(field+"msg").innerHTML = this.responseText;
+              document.getElementById("btn1").disabled = true;
+            }
+           if(this.responseText == "valid"){
+              document.getElementById(field+"msg").style.display = "none";
+              document.getElementById("btn1").disabled = false;
+           }
+
+        }
+      };
+      xhttp.open("GET","ajax?field="+field+"&data="+data,true);
+      xhttp.send();
+    }
+  }
+
+  function passwordcheck(password2){
+    var password1 = document.getElementById("password1").value;
+    if(password1 !== password2){
+      document.getElementById("password2msg").style.display = "block";
+      document.getElementById("password2msg").innerHTML ="NOTE : Your Password doesn't match!";
+      document.getElementById("btn1").disabled = true;
+    }
+    else{
+          document.getElementById("password2msg").style.display = "none";
+          document.getElementById("btn1").disabled = false;
+        }
+  }
+
+  function validator(form){
+    var inputs = form.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+            if(inputs[i].value == ""){
+                alert("All Fields are Mandatory! Please fill it and then Submit!");
+                return false;
+            }
+          }
+          return true;
+  }
+ 
+  </script>
+</body>
+</html>
