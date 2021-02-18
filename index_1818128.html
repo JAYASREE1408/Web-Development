@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validation using js</title>
+        <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet'>
+        <style type="text/css">
+            body{
+                font-family: 'Nosifer';
+            }
+            td{
+                padding: 10px;
+                color: blue;
+            }
+        </style>
+        <script>
+        function validate1(){
+            var dateofbirth = document.getElementById("date"); 
+            var dob = dateofbirth.value.split('/');      
+            var d = dob[0];  
+            var m = dob[1];  
+            var y = dob[2];
+            age.value =2020 - y
+        }
+        function validateName() {
+        var name = document.getElementById("name").value;
+        var c = 0;
+        for(var i=0;i<name.length;i++){
+            if(name[i]===' ')
+                c+=1;
+        if(name.charCodeAt(i)<65 || name.charCodeAt(i)>122 || c>2)
+        {
+            alert("Invalid name,only alphabets and maximum of 2 white spaces are allowed");
+            break;
+        } } }
+        function validate(){
+            errors = [];
+            var status = true;
+            var n = document.myform.fname.value;
+            var e = document.myform.email.value;
+            var age = document.myform.age.value;
+            var dateofbirth = document.getElementById("date"); 
+            var dob = dateofbirth.value.split('/');  
+            var dd = dob[0];  
+            var mm = dob[1];  
+            var yy = dob[2];
+
+            
+         var atpos=e.indexOf("@");
+            var dotpos=e.lastIndexOf(".");
+            if(n == null || n === ''){
+                errors.push('Name must be filled out!');
+                
+            }
+            
+        if(e === ''){
+            errors.push("Enter your Email!");
+           
+        }
+        else{
+           
+    
+        if(atpos<1||atpos+2>dotpos||e.length<=dotpos+2)
+        {
+            errors.push("Invalid E-mail address!It should be in format of XXXXX@XXXX.XXX");
+            
+        }
+        }
+        if(date.value === ''){
+           errors.push("Date Of Birth is mandatory!");
+        }
+        if(age === ''){
+            errors.push("Age is required!");
+        }
+        if (dob.length!= 3) {  
+                    errors.push("Please enter Date Of Birth in (dd/mm/yyyy) format");  
+                    
+                } 
+        else{
+            
+               
+                if (dob.length!= 3) {  
+                    errors.push("Please enter Date Of Birth in (dd/mm/yyyy) format");  
+                    
+                }  
+                else {  
+                    if ((mm == 4 || mm == 6 || mm == 9 || mm == 11) && dd > 30) {  
+                        errors.push("Please enter Day less than equal to 30");  
+                        return false;  
+                    }  
+                    if ((mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) && dd > 31) {  
+                        errors.push("Please enter Day less than equal to 31");  
+                        return false;  
+                    }  
+                    if (mm == 2) {  
+                        var lyear = false;  
+                        if ((!(yy % 4) && yy % 100) || !(yy % 400)) {  
+                            lyear = true;  
+                        }  
+                        if ((lyear == false) && (dd >= 29)) {  
+                            errors.push('Invalid date format in February!');  
+                            return false;  
+                        }  
+                        if ((lyear == true) && (dd > 29)) {  
+                            errors.push('Invalid date format in February!');  
+                            return false;  
+                        }  
+                    }  
+                    if (parseFloat(dob[1]) > 12) {  
+                        errors.push("Please enter Month less than equal to 12");  
+                        return false;  
+                    }  
+                    if (dob[2].length != 4) {  
+                        errors.push("Please enter Year in Four Digit (yyyy)");  
+                        return false;  
+                    }  
+                }  
+            }
+    
+
+        
+        if(errors.length>0)
+        {
+            var msg="ERRORS!!Please correct the following and Submit\n\n";
+        for(i=0;i<errors.length;i++)
+        {
+            msg+=errors[i]+'\n';
+        }
+        alert(msg);
+        return status=false;
+        }
+        return status;
+    }
+        
+        </script>
+    </head>
+        <style type="text/css">
+            table{
+                align-content: center;
+                float: center;
+                margin: 0px 200px 0px 320px;
+                background-color:white;
+                border: 1px solid blue;
+                padding-left: 300px; 
+            }
+            td
+            {
+                  font-size: 2rem;
+                  font-family: "Work Sans", sans-serif;
+                  font-weight: 600;
+                  color: black;
+                  font-weight: bold;
+                  margin: -1rem 0 1.2rem 0; 
+  }
+  </style>
+        
+
+    <body style="background-image: url('https://images-na.ssl-images-amazon.com/images/I/81MkE1P-9FL._SL1200_.jpg');width: 100%;height: 100%; background-size: cover; background-repeat: no-repeat;">
+
+     <h1 align="center" style="color:blue">FORM VALIDATION</h1>
+            <form name = "myform" method= "post" action ="register.html" onsubmit = "return validate(this)">
+                <table  align="center" style="padding: 10px;opacity: 0.5;border-radius: 50px;border: 3px solid blue ">
+                <tr>
+                    <td>
+                        Name :
+                    </td>
+                    <td>
+                        <input style="  border-bottom:  0.2rem solid blue;" placeholder="Enter your name" type = "text" id="name" name="fname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email :
+                    </td>
+                    <td>
+                       <input style="   border-bottom:  0.2rem solid blue;" placeholder="Enter your Email" type = "text" id = "mail" name = "email">
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                       Date of Birth :  
+                    </td>
+                    <td>
+                         <input style="   border-bottom:  0.2rem solid blue;" type = "text" placeholder="dd/mm/yyyy" id ="date" name = "db">
+                    </td>
+                </tr>  
+                <tr>
+                    <td>
+                        Age : 
+                    </td>
+                    <td>
+                        <input style="   border-bottom:  0.2rem solid blue;" type = "number" id ="age" name = "age" placeholder="Enter your age" onmouseover="validate1(this)">
+                    
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        <input style="background: white;padding: 10px;width: 100px;border-radius: 20px;color: white;font-weight: bold;background: blue" onclick="validateName(this)" type ="submit" value = "SUBMIT">
+                    </td>
+                    <td>
+                       <input style="background: white;padding: 10px;width: 100px;border-radius: 20px;color: white;font-weight: bold;background: blue" type ="reset" value = "RESET"> 
+                    </td>
+                </tr>
+                </table>
+            </form>
+    </body>
+</html>
