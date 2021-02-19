@@ -1,0 +1,16 @@
+<web-app>
+	<servlet>
+		<servlet-name>sessionex</servlet-name>
+		<servlet-class>SessionExample</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+			
+		<servlet-name>sessionex</servlet-name>
+		<url-pattern>/sd</url-pattern>
+
+	</servlet-mapping>
+</web-app>
+		
+		

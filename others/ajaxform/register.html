@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX form validation</title>
+</head>
+<body align="center">
+   <div>      
+   		<form align="center" action="AjaxValidate" method="POST" onsubmit="return validator(this);"> 			
+   			<b><h1>REGISTRATION FORM</h1></b>          
+        <table align="center">
+   			<div>
+          <tr><td>
+              <label for="name">Name : </label>
+            </td>
+            <td>
+              <input type="text" placeholder="Enter your name" name="username" id="name" onchange="check(this.name,this.value);">
+          <p id="usernamemsg"></p>
+          </td>
+          </tr>
+          <tr><td>
+              <label for="mail">Email ID : </label>
+            </td>
+            <td>
+              <input type="text" placeholder="Enter your Email ID" name="emailId" id="mail" onchange="check(this.name,this.value);">
+          <p id="emailIdmsg"></p>
+            </td>
+          </tr>
+		  <tr><td>
+              <label for="age">Age : </label>
+            </td>
+            <td>
+              <input type="text" placeholder="Enter your age" name="dob" id="age" onchange="check(this.name,this.value);">
+          <p id="dobmsg"></p>
+          </td></tr>
+          <tr><td>
+              <label for="password1">Password :</label>
+            </td>
+            <td>
+              <input type="password" placeholder="Enter your password" name="password1" id="password1" onchange="check(this.name,this.value);">
+          <p id="password1msg"></p>
+            </td></tr>
+          <tr><td>
+              <label for="password2">Confirm Password : </label>
+            </td>
+            <td>
+              <input type="password" placeholder="Retype your password" name="password2" id="password2" onchange="passwordcheck(this.value);">
+              <p id="password2msg"></p>
+            </td></tr>
+          <tr><td>
+            </td>
+            <td>
+              <button id="btn1" type="submit" name="button1" role="button" class="btn btn-info" >SUBMIT</button>      
+              <button id="btn2" type="reset" name="button2" role="button" class="btn btn-success" >RESET</button>
+            </td></tr>
+        <br>
+        </table>
+   		</form>
+   </div>
+  <script type="text/javascript">
+
+  function check(field,data){
+      if(data!=null&&data!=""){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function(){
+      if(this.readyState ==4  && this.status == 200){
+            if(this.responseText!=null && this.responseText!="")
+            {
+              document.getElementById(field+"msg").style.display = "block";
+              document.getElementById(field+"msg").innerHTML = this.responseText;
+              document.getElementById("btn1").disabled = true;
+            }
+           if(this.responseText == "valid"){
+              document.getElementById(field+"msg").style.display = "none";
+              document.getElementById("btn1").disabled = false;
+           }
+        }
+      };
+      xhttp.open("GET","AjaxValidate?field="+field+"&data="+data,true);
+      xhttp.send();
+    }
+  }
+  function passwordcheck(password2){
+    var password1 = document.getElementById("password1").value;
+    if(password1 !== password2){
+      document.getElementById("password2msg").style.display = "block";
+      document.getElementById("password2msg").innerHTML ="NOTE : Your Password doesn't match!";
+      document.getElementById("btn1").disabled = true;
+    }
+    else{
+          document.getElementById("password2msg").style.display = "none";
+          document.getElementById("btn1").disabled = false;
+        }
+  }
+  function validator(form){
+    var inputs = form.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+            if(inputs[i].value == ""){
+                alert("All Fields are Mandatory! Please fill it and then Submit!");
+                return false;
+            }
+          }
+          return true;
+  }
+  </script>
+</body>
+</html>

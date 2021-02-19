@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DOMPARSER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    
+	div{
+    	font-family:Comic Sans MS, Comic Sans, cursive;
+		font-stretch: extra-condensed;
+		font-weight: 300;
+		font-style: italic;
+		display: inline-block;
+	   }
+	div.container {
+   
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+       }
+    .button{
+    	background-color: black;
+    	color: white;
+    	padding: 5px;border-radius: 10px;border: 2px solid black;
+    }
+
+	</style>
+</head>
+
+<body style="background-image: url('https://toppng.com/uploads/preview/snow-winter-trees-winter-landscape-snowy-11570151734kuct8mxnsi.jpg');width: 100%;height: 90%; background-size: cover; background-repeat: no-repeat;">
+	<div class=container>
+	<table align="center" bgcolor=#17202A><h2 align="center" ><div><b>STUDENT INFORMATION SYSTEM</b></div></h2>
+    </table>
+	<table align="center"  style="padding: 10px;border-radius: 25px;border: 2px solid black;width:500px;height:250px" > 
+    <tr><td align="center">
+    <form action="fetchdata" method="get">
+        <label for="rno"><h2><div>Roll Number of Student :</div></h2></label>
+        <input type="text" name="data" id="rollno" placeholder="Enter Rollno"><br><br>
+        
+        <button  type="submit" name="button" class="button"><div>Submit</div></button>
+        <button  type="reset" name="button" class="button"><div>Reset</div></button>
+    </form>
+    </td></tr></table>
+    </div>
+</body>
+</html>
