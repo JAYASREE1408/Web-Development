@@ -1,0 +1,49 @@
+body{
+    
+    font-size: 20px;
+    background-color: #4d7ac4;
+
+}
+.container { 
+    padding: 16px;
+    width: 30%;
+    margin: 100px auto;
+    border: 2px solid black;
+    background-color: white;
+}
+
+h2{
+    padding: 5px;
+    text-align: center;
+}
+td{
+    
+    padding-left: 58px;
+    
+}
+
+
+input[type="submit"]
+{
+    font-size: 20px;
+    
+
+    
+    padding: 5px;
+    margin-top: 30px;
+    margin-left: 60px;
+    width: 70%;
+    
+}
+
+#viewtable{
+    border: 2px solid black;
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.query{
+    text-align: center;
+}
