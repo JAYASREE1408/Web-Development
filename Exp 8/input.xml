@@ -1,0 +1,40 @@
+<?xml version = "1.0" ?>
+<class>
+<student rollno ="1818101">
+    <firstname>Aaisha</firstname>
+    <lastname>Sharma</lastname>
+    <classstudy>IT</classstudy>
+    <marks>8.9</marks>
+</student>
+<student rollno ="1813102">
+    <firstname>Fathima</firstname>
+    <lastname>Zahara</lastname>
+    <classstudy>EEE</classstudy>
+    <marks>9.1</marks>
+</student>
+<student rollno ="1814103">
+    <firstname>Shilpa</firstname>
+    <lastname>Patel</lastname>
+    <classstudy>ECE</classstudy>
+    <marks>7.8</marks>
+</student>
+<student rollno ="1817104">
+    <firstname>Yadhav</firstname>
+    <lastname>Kumar</lastname>
+    <classstudy>CSE</classstudy>
+    <marks>9.5</marks>
+</student>
+<student rollno ="1815105">
+    <firstname>Nikilesh</firstname>
+    <lastname>David</lastname>
+    <classstudy>CIVIL</classstudy>
+    <marks>7.2</marks>
+</student>
+<student rollno ="1819106">
+    <firstname>Vivek</firstname>
+    <lastname>Kanna</lastname>
+    <classstudy>IBT</classstudy>
+    <marks>7.2</marks>
+</student>
+
+</class>
